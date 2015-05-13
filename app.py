@@ -8,7 +8,8 @@ This file creates your application.
 
 import os
 from flask import Flask, render_template, request, redirect, url_for
-
+from pytube import YouTube
+import json
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
@@ -29,6 +30,14 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
 
+@app.route('/yt/<yt_id>')
+def yt(yt_id):
+    video = YouTube()
+    try:
+        video.url = "http://youtube.com/watch?v=%s" % yt_id
+    except:
+        return render_template('404.html'), 404
+    return json.dumps({"%s-%s" % (video.resolution, video.extension) : video.url for video in video.videos})
 
 ###
 # The functions below should be applicable to all Flask apps.

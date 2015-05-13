@@ -13,5 +13,6 @@ mock
 # ----------------------
 # Production Server
 # ----------------------
-gevent
 gunicorn
+
+
