@@ -33,18 +33,12 @@ def about():
 @app.route('/web/<yt_id>')
 def yt_web(yt_id):
     video = YouTube()
-    try:
-        video.url = "http://youtube.com/watch?v=%s" % yt_id
-    except:
-        return render_template('404.html'), 404
+    video.url = "http://youtube.com/watch?v=%s" % yt_id
     return render_template("webtable.html", videos=[("%s-%s" % (video.resolution, video.extension) , video.url) for video in video.videos])
 @app.route('/api/<yt_id>')
 def yt_api(yt_id):
     video = YouTube()
-    try:
-        video.url = "http://youtube.com/watch?v=%s" % yt_id
-    except:
-        return render_template('404.html'), 404
+    video.url = "http://youtube.com/watch?v=%s" % yt_id
     return json.dumps({"%s-%s" % (video.resolution, video.extension) : video.url for video in video.videos})
 
 ###
