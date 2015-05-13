@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block js %}
+{% endblock %}
+
+
+{% block main %}
+<table class="table table-bordered table-hover">
+  <thead>
+        <tr>
+          <th>Format-Res</th>
+          <th>Link<th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for video in videos %}
+		<tr>
+          <td>{{ video[0] }}</td>
+          <td><a href="{{ video[1] }}">{{ video[1] }}</a></td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}
