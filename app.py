@@ -30,8 +30,16 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
 
-@app.route('/yt/<yt_id>')
-def yt(yt_id):
+@app.route('/web/<yt_id>')
+def yt_web(yt_id):
+    video = YouTube()
+    try:
+        video.url = "http://youtube.com/watch?v=%s" % yt_id
+    except:
+        return render_template('404.html'), 404
+    return render_template("webtable.html", videos=[("%s-%s" % (video.resolution, video.extension) , video.url) for video in video.videos])
+@app.route('/api/<yt_id>')
+def yt_api(yt_id):
     video = YouTube()
     try:
         video.url = "http://youtube.com/watch?v=%s" % yt_id
