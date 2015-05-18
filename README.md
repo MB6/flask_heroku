@@ -3,9 +3,9 @@ This is a youtube download link generator based on `flask-heroku` and the python
 
 #Instructions
 To dev:
-1. `pip install -r requirements.txt`
-2. `python app.py`
-3. viola
++ `pip install -r requirements.txt`
++ `python app.py`
++ viola
 
 #Link
 This code is deployed at https://aqueous-oasis-5124.herokuapp.com/
