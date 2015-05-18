@@ -14,6 +14,7 @@ mock
 # Production Server
 # ----------------------
 gunicorn
+gevent
 
 
 pytube
